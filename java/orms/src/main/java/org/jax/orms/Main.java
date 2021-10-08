@@ -18,13 +18,23 @@ public class Main {
             System.out.println(cipherText);
             System.out.println(plainText);
 
-            File file = new File("/home/oem/roadmap/java/orms/file/demo.xml");
+            File data = new File("./orms/file");
+            System.out.println(data.getAbsolutePath());
+            File[] files = data.listFiles();
+
+            if (files != null) {
+                System.out.println("abc" + files.length);
+            } else {
+                System.out.println("asasasas========");
+            }
+
+            File file = new File("./orms/file/demo.xml");
+
             System.out.println(file.exists());
 
-
-            File encryptedFile = new File("/home/oem/roadmap/java/orms/file/encryptFile.encrypted");
+            File encryptedFile = new File("./orms/file/encryptFile.encrypted");
             System.out.println(encryptedFile.exists());
-            File decryptedFile = new File("/home/oem/roadmap/java/orms/file/decryptFile.decrypted");
+            File decryptedFile = new File("./orms/file/decryptFile.decrypted");
 
             EncryptUtils.encryptFile(key, ivParameterSpec, file, encryptedFile);
             EncryptUtils.decryptFile(key, ivParameterSpec, encryptedFile, decryptedFile);
