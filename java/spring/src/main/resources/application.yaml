@@ -1,1 +1,11 @@
-
+server:
+  port: 8080
+  error:
+    include-binding-errors: always
+    include-message: always
+    include-stacktrace: always
+    whitelabel:
+      enabled: false
+    include-exception: false
+spring:
+  data:

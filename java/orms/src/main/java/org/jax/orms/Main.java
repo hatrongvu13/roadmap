@@ -14,6 +14,7 @@ public class Main {
             IvParameterSpec ivParameterSpec = EncryptUtils.generateIV();
             String cipherText = EncryptUtils.encrypt(input, key, ivParameterSpec);
             String plainText = EncryptUtils.decrypt(cipherText, key, ivParameterSpec);
+
             System.out.println(cipherText);
             System.out.println(plainText);
 
