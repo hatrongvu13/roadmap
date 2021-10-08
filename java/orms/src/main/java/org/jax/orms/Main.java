@@ -9,6 +9,7 @@ import java.io.File;
 public class Main {
     public static void main(String[] args) {
         try {
+            System.out.println(System.getProperty("user.dir"));
             String input = "jaxtony";
             SecretKey key = EncryptUtils.generateKey(128);
             IvParameterSpec ivParameterSpec = EncryptUtils.generateIV();
