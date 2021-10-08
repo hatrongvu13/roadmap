@@ -7,11 +7,11 @@
 ```
 ---
 * run orms:
-** if using intellij idea 
+- if using intellij idea 
 ```
 ./orms/file/demo/xml
 ```
-** if using terminal 
+- if using terminal 
 ```
 file/demo.xml
 ```
