@@ -15,7 +15,9 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class DemoServicesImpl implements DemoServices {
@@ -34,10 +36,19 @@ public class DemoServicesImpl implements DemoServices {
 
             Demo demo = new Demo();
             demo.setName("Name_" + LocalDateTime.now() + "_" + i);
+            Set<String> hashtag = new HashSet<>();
             if (i % 2 == 0) {
                 demo.setType("CHAN");
+                hashtag.add("TAG_CHAN");
+                hashtag.add("CHAN");
+                hashtag.add("#"+i);
+                demo.setHashtag(hashtag);
             } else {
                 demo.setType("LE");
+                hashtag.add("TAG_LE");
+                hashtag.add("CHAN");
+                hashtag.add("#"+i);
+                demo.setHashtag(hashtag);
             }
             fakeList.add(demo);
         }
@@ -65,7 +76,7 @@ public class DemoServicesImpl implements DemoServices {
         var project = Aggregation.project();
 
 //        var aggregation = Aggregation.newAggregation(facet,project);
-        var aggregation = Aggregation.newAggregation(match, skip, limit);
+        var aggregation = Aggregation.newAggregation(match, skip, limit, sort);
         var result = mongoTemplate.aggregate(aggregation, Demo.class, Demo.class);
 
         DemoResponse response = new DemoResponse();
