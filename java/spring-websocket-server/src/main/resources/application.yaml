@@ -1,0 +1,53 @@
+spring:
+  jpa:
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+        naming:
+          implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+          physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      globally_quoted_identifiers: true
+  data:
+    mongodb:
+      uri: mongodb://root:root@127.0.0.1:27017/websocket
+      database: websocket
+      auto-index-creation: true
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+#  cache:
+#    type: redis
+#  redis:
+#    host:
+#    port: 6380
+#    ssl: true
+#    timeout: 3600
+#    database: 6
+#    password:
+
+
+authentication:
+  token:
+    jwt:
+      publickey: MIIC6jCCAdKgAwIBAgIGAXzbNnCjMA0GCSqGSIb3DQEBCwUAMDYxNDAyBgNVBAMMKzd4cDNRSm9xWmozZW1NYk12ckhGbmgyVWlYemN4YWR0YzBkUzdDVWRhU00wHhcNMjExMTAxMTExNTUwWhcNMjIwODI4MTExNTUwWjA2MTQwMgYDVQQDDCs3eHAzUUpvcVpqM2VtTWJNdnJIRm5oMlVpWHpjeGFkdGMwZFM3Q1VkYVNNMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAiN6wEyRMy1M0r/o3SwZZQ+NzzHbWbsPmnUOZgDIuiPgR3g1iUmxpzG2oWgPthHHknIMrL3pASIuGGtjVOtmu9+MoHAqriHW9kM7o8/npY50fiC3M0IvIVsz2u3u2LYAAG9thtoaBQsSpx/bQ9iQmXQpmoVPljPx5p9xoSKViqayLNisDf3xF160IlQ7f+FlQlaEB2In6no6MFdTdbnznsNGQBM0/+FA3wGofVUNOxd//CZNAGZDgvOrC9Cnsc/Y+8lZyhZk1GTnnUaczJzDBay4BzBQJwr6m+On1dzPyEDp0CrjiIYFgkQTCwTJtpKOXdjNsnfoDBEiMCgwykQEusQIDAQABMA0GCSqGSIb3DQEBCwUAA4IBAQAON3ZiI4na+Nztxy2hDerpRz5vDKR0ndxZ0qDhd3bCHKdTftuECvja6ipI/tkKVMs4FwVE9mxaC2Cv7MXM1AHKmihTHkb4ikKEAWUTHk6sJePydlGv/feEqvGmC+7FHSB2hP0OWplDQlfGaHCFdqDaTBiELbIZI9QANXl2D0DRH4ijOQLP3zt5oXIcLWcOTbqJeqRzyk6Q+sr+4I5Rn52XvAG2CfOqtSK82Z69QCsHuBmrXFO2Rwj26sxOmESczEQK5FaI2N3Qv04vkLAvTTlUCFqIRBpdowhDCV/4skUicjn0B1128nkfQJX0FZyedy9pzgTijX/pz/WiaS4j2tJE
+      privatekey: MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCI3rATJEzLUzSv+jdLBllD43PMdtZuw+adQ5mAMi6I+BHeDWJSbGnMbahaA+2EceScgysvekBIi4Ya2NU62a734ygcCquIdb2Qzujz+eljnR+ILczQi8hWzPa7e7YtgAAb22G2hoFCxKnH9tD2JCZdCmahU+WM/Hmn3GhIpWKprIs2KwN/fEXXrQiVDt/4WVCVoQHYifqejowV1N1ufOew0ZAEzT/4UDfAah9VQ07F3/8Jk0AZkOC86sL0Kexz9j7yVnKFmTUZOedRpzMnMMFrLgHMFAnCvqb46fV3M/IQOnQKuOIhgWCRBMLBMm2ko5d2M2yd+gMESIwKDDKRAS6xAgMBAAECggEAHVR7Lt7shfXCqKNaDf3CS0YGnp4ovXvFg5Xk4w/d4QQn8Am2NCt/UIt/NCr7TxKJBvEk4/uyotkjV8V3jDDxybUn9zpiH8/7W3i7euznEq2tACWwalBKEi/B/9M26vEvFMkiW1bfhEtYhr1hch21CuMbsx6jZl8EQvB8eHTYe7toTVtR8TuTadmqvchkgBLiloeZz7zi/pkfimaZAyJzFTaNuhFr0fsYWc3+wT/Va0u92AUIkQSiIuTVrcDD35uT/s5TPM453nQ5faWdRqOdhvpICrrEZTgxSxZFiecUOi+Cw0+mf7FzTj1wvbnsm6lj9exVeHwmYPipNQATsh99sQKBgQDhV/lYXeoK7ulTQqig1GCGsfJwIzbWTqHoJO5YBiFVikdB8dRFGMruDr79aFJcv0pa2MXfiuURluYVvmfW1aMwNYPXpeFm3bZ8FRa7gjAjl+iPlilH0yoUgkDwU98XDjBXkPn/4p5ac6p7xRDqAxGAROle16SSC7h+07684OsCKwKBgQCbfXHFvAwz9Nk1APh4S93oahhJrn6fG7dNLrE7XmDaagdMYsF1Tl6HN37KcWDRvaZRXXImxbL4WnZEBXHZh+CEcyM11NPBdc5gC/J7pnHGiWnGaFJ08HHRxAeT5l1GUFqEi34aeV1Rg1hmbQaRBLJl86v86rAqqWVbfbwOnuTQkwKBgA68sCPlUG8SnNPDIkASY5WrgY1v4CA32ELUV3oOPJPZjTt000sJigvzju4HqotCP1ydnKM39C8oTTfS0fus0RVQCqVJxenySgLnZisxInDReHYbfeuilbftpM2Szp41YVf4tUDU00JbGiUqCCcluDlJSHHZbHvYpGI2+txjYTstAoGAfLfPBTLDev0/KAOiSSNZWC2ZU6hyCf86NN9p61vVRfvb5MolsIjuy3iY65qrdTCwcf0JLc5PsmMlD4RqgHg7fyG3MVuHilqK8YFDuyiThBL+U9Wjpgai1QVuqpQRZu/W2w/kUynbzyESS/3RUYq56Yrc/h3ktiNvmEYvDG8oy58CgYA2V16Kvv2BjoxWK7AXkc3Q4BJ/E1zauPgp19Llnis9jN5WBktikC0tr7rEdqaFLvVLBlHHgJZu/4OsU9chcHUTr66fde9saE08DkbkWV1qDZ2IAj+8+W1tm/5v3ycoCPMfzzjH7+zTCuBj9GL/UGoC6gbips+eMttmweiPuy3org==
+      expire: 3600
+    encrypt:
+      password: CP68FQTPfjBEr6UV
+      salt: a9yvYRerkjwYN6TT
+
+#azure:
+#  storage:
+#    connection-string:
+#    container-name:
+
+server:
+  error:
+    include-binding-errors: always
+    whitelabel.enabled: false
+    include-message: always
+    include-stacktrace: never
+    include-exception: true
+  servlet:
+    context-path: /socket
