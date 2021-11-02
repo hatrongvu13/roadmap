@@ -38,8 +38,8 @@ public class SwaggerConfig {
 
 
     private ApiInfo getApiInfo() {
-        Contact contact = new Contact("MBBANK", "https://mbbank.com.vn", "kiennha@mbbank.com.vn");
-        return new ApiInfoBuilder().title("Spring Boot Swagger").description("MBBANK").version("1.0.0")
+        Contact contact = new Contact("JAXTONY", "jaxtony.xyz", "hatrongvu13@gmail.com");
+        return new ApiInfoBuilder().title("Spring Boot Swagger").description("JAXTONY").version("1.0.0")
                 .license("Apache 2.0").licenseUrl("http://www.apache.org/licenses/LICENSE-2.0").contact(contact)
                 .build();
     }
