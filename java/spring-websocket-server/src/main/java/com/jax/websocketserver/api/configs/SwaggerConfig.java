@@ -31,7 +31,7 @@ public class SwaggerConfig {
 
     @Bean
     public Docket api() {
-        return new Docket(DocumentationType.SWAGGER_2).useDefaultResponseMessages(false).apiInfo(getApiInfo()).select().apis(RequestHandlerSelectors.basePackage("com.mbbank.horoscope.api.controllers"))
+        return new Docket(DocumentationType.SWAGGER_2).useDefaultResponseMessages(false).apiInfo(getApiInfo()).select().apis(RequestHandlerSelectors.basePackage("com.jax.websocketserver.api.controllers"))
                 .paths(PathSelectors.any()).build().securitySchemes(securitySchemes())
                 .securityContexts(securityContexts());
     }
