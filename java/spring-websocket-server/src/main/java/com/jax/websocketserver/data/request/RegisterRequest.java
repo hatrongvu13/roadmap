@@ -21,12 +21,15 @@ public class RegisterRequest {
     @Email
     private String email;
 
+    @NotNull(message = "Date of birth is not empty")
     private String dob;
 
+    @NotNull(message = "Mobile is not empty")
     private String mobile;
 
+    @NotNull(message = "Full name is not empty")
     private String fullName;
 
-
+    @NotNull(message = "Value is one of [MALE,FEMALE,OTHER]")
     private SexEnums sex;
 }

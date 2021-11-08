@@ -77,7 +77,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         "/swagger-ui/",
                         "/authentication/login",
                         "/authentication/admin",
-                        "/authentication/register/admin"
+                        "/authentication/register"
 //	                        "/authentication/reset",
 //	                        "/authentication/reset-password-passcode",
 //	                        "/authentication/reset-passcode",

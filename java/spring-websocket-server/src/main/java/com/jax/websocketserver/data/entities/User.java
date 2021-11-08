@@ -1,5 +1,6 @@
 package com.jax.websocketserver.data.entities;
 
+import com.jax.websocketserver.data.enums.ScopesEnums;
 import com.jax.websocketserver.data.enums.SexEnums;
 import lombok.Data;
 import org.bson.types.ObjectId;
@@ -11,6 +12,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Data
 @Document(collection = "users")
@@ -27,6 +29,8 @@ public class User {
 
     @NotNull
     private String password;
+
+    private Set<ScopesEnums> scopes;
 
     private String dob;
 
