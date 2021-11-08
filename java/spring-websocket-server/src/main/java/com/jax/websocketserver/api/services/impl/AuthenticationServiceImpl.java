@@ -1,5 +1,6 @@
 package com.jax.websocketserver.api.services.impl;
 
+import com.jax.websocketserver.api.authentications.TokenProvider;
 import com.jax.websocketserver.api.services.AuthenticationService;
 import com.jax.websocketserver.data.DTO.UserPrincipal;
 import com.jax.websocketserver.data.entities.LoginLogs;
@@ -14,6 +15,7 @@ import com.jax.websocketserver.data.response.UserInfo;
 import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -30,6 +32,12 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
     @Autowired
     DozerBeanMapper mapper;
+
+    @Autowired
+    PasswordEncoder encoder;
+
+    @Autowired
+    TokenProvider tokenProvider;
 
     @Override
     public Token login(LoginRequest loginData) {
@@ -55,6 +63,8 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         }
         User newUser = mapper.map(requestData, User.class);
 
+        newUser.setPassword(encoder.encode(requestData.getPassword()));
+
         userRepository.save(newUser);
         loginLogRepository.save(registerLog);
 
@@ -75,7 +85,22 @@ public class AuthenticationServiceImpl implements AuthenticationService {
         UserInfo userInfo = new UserInfo();
         Token token = new Token();
 
+        userInfo.setUsername(user.getUsername());
+        userInfo.setEmail(user.getEmail());
+        userInfo.setDob(user.getDob());
+        userInfo.setFullName(user.getFullName());
+        userInfo.setMobile(user.getMobile());
         userInfo.setAddress(user.getAddress());
+        userInfo.setSex(user.getSex());
+
+        UserPrincipal userPrincipal = new UserPrincipal();
+        userPrincipal.setUserInfo(userInfo);
+
+        String tokenStr = tokenProvider.issueToken(userPrincipal);
+
+        token.setToken(tokenStr);
+        token.setBearToken("Bearer "+ tokenStr);
+
         return token;
     }
 }

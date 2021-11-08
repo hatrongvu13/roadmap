@@ -94,7 +94,7 @@ public class TokenProvider {
     }
 
     @SneakyThrows
-    public String issueToken(UserPrincipal userPrincipal, boolean power) {
+    public String issueToken(UserPrincipal userPrincipal) {
 
         SecretKey SK = EncryptionUtil.getKeyFromPassword(encryptPassword, salt);
         byte[] iv = EncryptionUtil.getRandomNonce();
