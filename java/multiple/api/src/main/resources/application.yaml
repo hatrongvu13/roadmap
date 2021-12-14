@@ -1,0 +1,49 @@
+spring:
+  jpa:
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+        naming:
+          implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+          physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      globally_quoted_identifiers: true
+  data:
+    mongodb:
+      uri: mongodb://root:root@127.0.0.1:27017/api
+      database: api
+      auto-index-creation: true
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 20MB
+
+
+authentication:
+  token:
+    jwt:
+      publickey: MIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAqz38EhVgIgBPKvp4h3usdMcVV1bRrSF69e0z0WKj8dQqOxOy2lKFYabzH+OXcSMiSSk47C1cfM+EQnhIkN7ZuYV/8FivauvyOcZmhV5a8VjsUGPbOP8bD9nK8DCVVokMxe4LUHL7jpo+jq1UUDSU8vYXaJi2Ss/V0z3ZIlAS6WiQjNTY4l40A+SaYdG+8FEKvZtgjpY+fxd+Z464vEGCQ+b07TuBTVdlJ3IU15G3xoE3bARxJQvy/fLwnqiZtpDizCGzxWw4Pbm+04/uOMB2DiUC2K9Sptla3P5ILLQxh7sA2333nz6uvBtB0maxfNBANBkt2GdlrhlDTgB8G14U7gb9lz/hsOpnBs2Ilrby/cjmPL91BZXf88GhkAZocvTCZgnu918/e379RrX2Sk78j9+Po4iFLyvm5Mgj6qFgSUC+ylea5ShuQCKK8V3TYdoEMdjLJXLEXqa5AosMFGpT6Y8K7UEHXFNxllIIAes52G8cEDhjaVHr9wxBK45uy4i/f6gabnJioRtlgd8btmT8WwxT2wMaryWzPctxWRzkHMUaCFmpZ1TJwOS1lEDUVPTbzxDxsE5LpMaxi47CWo84jsrFs3JXX4lDykB3dzyD7OY9IBvnN72kxRkBdJG7tV1GCJYMtrjmd8H4zBUZrXyfCmVvwRELcFyVfo04qOH3MqsCAwEAAQ==
+      privatekey: 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
+      expire: 3600
+    encrypt:
+      password: IcdvX635kN2QPUMu
+      salt: 8KMbVrYfuAJjMeXz
+
+server:
+  error:
+    include-binding-errors: always
+    whitelabel.enabled: false
+    include-message: always
+    include-stacktrace: never
+    include-exception: true
+  servlet:
+    context-path: /api
+
+telegramBot:
+  token:
+  chatId:
+  environment:
+  
